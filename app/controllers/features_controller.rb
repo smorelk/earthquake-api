@@ -8,6 +8,14 @@ class FeaturesController < ApplicationController
 
   # POST /features/:id/comment
   def create_comment
+    content = params[:body] if params[:body]
+    id = params[:id] if params[:id]
+    c = Comment.new(feature_id: id, body: content)
+    if c.save
+      render json: { message: "Comment successfully submitted to feature #{id}"}
+    else
+      render json: { error: c.errors }
+    end
   end
 
   private

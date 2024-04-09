@@ -9,4 +9,8 @@ class Feature < ApplicationRecord
   validates :magnitude, inclusion: -1.0..10.0
   validates :latitude, inclusion: -90.0..90.0
   validates :longitude, inclusion: -180.0..180.0
+
+  # Association with comments
+  #
+  has_many :comments
 end
