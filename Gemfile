@@ -49,3 +49,4 @@ end
 gem "active_model_serializers", "~> 0.10.14"
 
 gem "kaminari", "~> 1.2"
+gem 'rack-cors'

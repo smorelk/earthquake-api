@@ -22,8 +22,17 @@ class FeaturesController < ApplicationController
 
   def validate_params
     # Default values
-    @page= params["page"] || 1
-    @per_page = params["per_page"] || 50
+    @page= 1
+    @per_page = 50
+
+    if params.has_key? "page"
+      @page = params["page"].to_i
+    end
+
+    if params.has_key? "per_page"
+      @per_page = params["per_page"].to_i
+    end
+
 
     valid_mag_types = Set["md", "ml", "ms", "mw", "me", "mi", "mb", "mlg"]
 
