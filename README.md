@@ -1,24 +1,35 @@
-# README
+# Earthquake API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby-on-Rails API that provide data about Earthquakes events in the past 30 days and also a React web app to display points in a map to show where the earthquake happen, as well as other relevant information.
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+First of all, install the ruby gems needed by running the following command:
 
-* System dependencies
+```bash
+bundle install
+```
 
-* Configuration
+Next, install either Node.js or Bun to run the front-end code, then run the following:
+```bash
+cd front-end/earthquake-view
+# run either npm install or bun install in this step
+```
 
-* Database creation
+## Build and Run
+First run database migrations to properly set the schema
+```bash
+rails db:migrate
+```
+Populate database with custom task. For details see lib/tasks/earthquake_db.rake 
+```bash
+rails earthquake_db:populate
+```
+After that, run the API server
+```bash
+rails server
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run the Web App, run:
+```
+bun start # or npm run start
