@@ -1,11 +1,8 @@
 import * as React from 'react';
 import PublicIcon from '@mui/icons-material/Public';
-import NumbersIcon from '@mui/icons-material/Numbers';
 import { AppBar, Box, Divider, 
-  Typography, Toolbar, Drawer, 
-  List, ListItem, ListItemButton, ListItemIcon,
-  ListItemText, TextField, InputAdornment,
-  Button } from '@mui/material/';
+  Typography, Toolbar, 
+  TextField, Button } from '@mui/material/';
 import { DataGrid } from '@mui/x-data-grid';
 import './App.css';
 import Map from './components/Map';
@@ -68,8 +65,6 @@ function App() {
       });
 
       setRows(rws);
-      setEarthquakeData(json.data)
-      
     })
     .catch(err => console.error(err));
   }
