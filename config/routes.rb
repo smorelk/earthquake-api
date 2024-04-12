@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/api/features/', to: 'features#index'
+  get '/api/features/:id/comments', to: 'features#get_comments'
   post '/api/features/:id/comments', to: 'features#create_comment'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

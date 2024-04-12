@@ -1,12 +1,12 @@
 class FeaturesController < ApplicationController
   before_action :validate_params, only: :index
 
-  # GET /features
+  # GET /api/features
   def index
     render_data @features, @page, @per_page
   end
 
-  # POST /features/:id/comment
+  # POST /api/features/:id/comments
   def create_comment
     content = params[:body] if params[:body]
     id = params[:id] if params[:id]
@@ -16,6 +16,14 @@ class FeaturesController < ApplicationController
     else
       render json: { error: c.errors }
     end
+  end
+
+  # GET /api/features/:id/comments
+  def get_comments
+    id = params[:id] if params[:id]
+    comments = Comment.where(feature_id: id)
+
+    render json: { comments: comments }
   end
 
   private
